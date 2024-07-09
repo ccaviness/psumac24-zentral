@@ -167,3 +167,45 @@ resource "zentral_mdm_profile" "mscp-firewall-1" {
   macos       = true
   version     = 1
 }
+
+resource "zentral_mdm_artifact" "mscp-applicationaccess" {
+  name      = "mSCP - applicationaccess"
+  type      = "Profile"
+  channel   = "Device"
+  platforms = ["macOS"]
+}
+
+resource "zentral_mdm_profile" "mscp-applicationaccess-1" {
+  artifact_id = zentral_mdm_artifact.mscp-applicationaccess.id
+  source      = filebase64("${path.module}/mobileconfigs/com.apple.applicationaccess.mobileconfig")
+  macos       = true
+  version     = 1
+}
+
+resource "zentral_mdm_artifact" "mscp-assistant" {
+  name      = "mSCP - assistant"
+  type      = "Profile"
+  channel   = "Device"
+  platforms = ["macOS"]
+}
+
+resource "zentral_mdm_profile" "mscp-assistant-1" {
+  artifact_id = zentral_mdm_artifact.mscp-assistant.id
+  source      = filebase64("${path.module}/mobileconfigs/com.apple.assistant.mobileconfig")
+  macos       = true
+  version     = 1
+}
+
+resource "zentral_mdm_artifact" "mscp-icloud" {
+  name      = "mSCP - icloud"
+  type      = "Profile"
+  channel   = "Device"
+  platforms = ["macOS"]
+}
+
+resource "zentral_mdm_profile" "mscp-icloud-1" {
+  artifact_id = zentral_mdm_artifact.mscp-icloud.id
+  source      = filebase64("${path.module}/mobileconfigs/com.apple.icloud.mobileconfig")
+  macos       = true
+  version     = 1
+}
