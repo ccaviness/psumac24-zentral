@@ -191,7 +191,7 @@ resource "zentral_mdm_artifact" "mscp-assistant" {
 
 resource "zentral_mdm_profile" "mscp-assistant-1" {
   artifact_id = zentral_mdm_artifact.mscp-assistant.id
-  source      = filebase64("${path.module}/mobileconfigs/com.apple.assistant.mobileconfig")
+  source      = filebase64("${path.module}/mobileconfigs/com.apple.assistant.support.mobileconfig")
   macos       = true
   version     = 1
 }
@@ -205,7 +205,7 @@ resource "zentral_mdm_artifact" "mscp-icloud" {
 
 resource "zentral_mdm_profile" "mscp-icloud-1" {
   artifact_id = zentral_mdm_artifact.mscp-icloud.id
-  source      = filebase64("${path.module}/mobileconfigs/com.apple.icloud.mobileconfig")
+  source      = filebase64("${path.module}/mobileconfigs/com.apple.icloud.managed.mobileconfig")
   macos       = true
   version     = 1
 }
