@@ -74,3 +74,32 @@ resource "zentral_mdm_blueprint_artifact" "mscp-firewall" {
   artifact_id  = zentral_mdm_artifact.mscp-firewall.id
   macos        = true
 }
+
+resource "zentral_mdm_blueprint_artifact" "mscp-applicationaccess" {
+  blueprint_id = zentral_mdm_blueprint.default.id
+  artifact_id  = zentral_mdm_artifact.mscp-applicationaccess.id
+  macos        = true
+}
+
+resource "zentral_mdm_blueprint_artifact" "mscp-assistant" {
+  blueprint_id = zentral_mdm_blueprint.default.id
+  artifact_id  = zentral_mdm_artifact.mscp-assistant.id
+  macos        = true
+}
+
+resource "zentral_mdm_blueprint_artifact" "mscp-icloud" {
+  blueprint_id = zentral_mdm_blueprint.default.id
+  artifact_id  = zentral_mdm_artifact.mscp-icloud.id
+  macos        = true
+}
+
+# FileVault
+
+resource "zentral_mdm_filevault_config" "default" {
+  name                         = "Default"
+  escrow_location_display_name = "PSUMAC24 GitOps Workshop"
+  at_login_only                = true
+  bypass_attempts              = 0
+  destroy_key_on_standby       = true
+  show_recovery_key            = false
+}
