@@ -75,6 +75,24 @@ resource "zentral_mdm_blueprint_artifact" "mscp-firewall" {
   macos        = true
 }
 
+resource "zentral_mdm_blueprint_artifact" "mscp-applicationaccess" {
+  blueprint_id = zentral_mdm_blueprint.default.id
+  artifact_id  = zentral_mdm_artifact.mscp-applicationaccess.id
+  macos        = true
+}
+
+resource "zentral_mdm_blueprint_artifact" "mscp-assistant" {
+  blueprint_id = zentral_mdm_blueprint.default.id
+  artifact_id  = zentral_mdm_artifact.mscp-assistant.id
+  macos        = true
+}
+
+resource "zentral_mdm_blueprint_artifact" "mscp-icloud" {
+  blueprint_id = zentral_mdm_blueprint.default.id
+  artifact_id  = zentral_mdm_artifact.mscp-icloud.id
+  macos        = true
+}
+
 # FileVault
 
 resource "zentral_mdm_filevault_config" "default" {
